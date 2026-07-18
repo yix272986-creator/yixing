@@ -53,6 +53,47 @@
       .turing-question { position:absolute; left:90px; right:90px; bottom:455px; font-size:72px; line-height:1.16; font-weight:900; color:#f2f5ff; text-shadow:0 14px 42px rgba(0,0,0,.78); }
       .turing-subtitle { position:absolute; left:92px; right:92px; bottom:365px; font-size:36px; line-height:1.38; color:#cdd4e8; }
       .turing-dust { position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(226,220,204,.58); opacity:.32; }
+      #scene-dartmouth { background:#070605; overflow:hidden; }
+      #scene-dartmouth::after { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 52% 46%, transparent 0 48%, rgba(0,0,0,.48) 78%, rgba(0,0,0,.88) 100%), repeating-radial-gradient(circle at 41% 35%, rgba(255,245,220,.022) 0 1px, transparent 1px 6px); opacity:.76; }
+      .dartmouth-camera { position:absolute; inset:0; transform-origin:54% 52%; }
+      .dartmouth-room { position:absolute; inset:0; background:linear-gradient(180deg,#090806 0%,#161411 44%,#080706 100%); }
+      .dartmouth-window { position:absolute; left:70px; top:170px; width:285px; height:540px; background:linear-gradient(115deg, rgba(220,172,96,.24), rgba(220,172,96,.05) 48%, transparent 72%); filter:blur(10px); opacity:.58; transform:skewX(-8deg); }
+      .dartmouth-board { position:absolute; right:112px; top:260px; width:610px; height:420px; padding:58px 54px; background:linear-gradient(145deg,#172018,#0b120d); box-shadow:inset 0 0 70px rgba(0,0,0,.42),0 28px 80px rgba(0,0,0,.52); opacity:.72; }
+      .chalk-line { display:block; width:0; overflow:hidden; white-space:nowrap; font-family:LocalHei, sans-serif; color:rgba(235,229,207,.86); text-shadow:0 0 2px rgba(235,229,207,.22); }
+      .chalk-small { font-size:30px; letter-spacing:.08em; margin-bottom:42px; opacity:.74; }
+      .chalk-main { font-size:54px; line-height:1.08; font-weight:900; letter-spacing:.035em; }
+      .dartmouth-table { position:absolute; left:96px; right:96px; bottom:345px; height:330px; border-radius:55% 55% 24px 24px; background:linear-gradient(180deg,#5a4028,#21150e 74%); box-shadow:0 40px 100px rgba(0,0,0,.62), inset 0 36px 70px rgba(238,190,117,.12); transform:perspective(600px) rotateX(13deg); }
+      .dartmouth-paper { position:absolute; width:150px; height:96px; background:#d9c79f; box-shadow:0 10px 22px rgba(0,0,0,.28); opacity:.82; }
+      .dartmouth-paper.p1 { left:250px; top:70px; transform:rotate(-9deg); }
+      .dartmouth-paper.p2 { left:462px; top:110px; transform:rotate(6deg); }
+      .dartmouth-paper.p3 { right:205px; top:82px; transform:rotate(11deg); }
+      .dartmouth-notebook { position:absolute; left:360px; top:172px; width:210px; height:105px; border-radius:8px; background:linear-gradient(90deg,#b9a476 49%,#dac99f 50%); box-shadow:inset 0 0 24px rgba(68,43,20,.22); }
+      .dartmouth-pen { position:absolute; left:628px; top:172px; width:150px; height:7px; background:#2b2319; transform:rotate(-18deg); }
+      .dartmouth-cup { position:absolute; right:295px; top:156px; width:58px; height:66px; border-radius:8px 8px 20px 20px; background:#6a4b2e; box-shadow:inset 0 10px 18px rgba(235,195,124,.18); }
+      .dartmouth-cards { position:absolute; right:140px; top:188px; width:170px; height:55px; background:repeating-linear-gradient(90deg,#cdbd96 0 12px,#a9956e 12px 16px); opacity:.78; transform:rotate(5deg); }
+      .dartmouth-person { position:absolute; width:160px; height:260px; opacity:.88; filter:blur(.4px); }
+      .dartmouth-person::before { content:""; position:absolute; left:58px; top:12px; width:52px; height:62px; border-radius:45% 45% 38% 38%; background:#080706; box-shadow:0 0 22px rgba(0,0,0,.42); }
+      .dartmouth-person::after { content:""; position:absolute; left:34px; top:72px; width:100px; height:150px; border-radius:45px 45px 12px 12px; background:linear-gradient(180deg,#11100f,#030303); }
+      .person-a { left:115px; bottom:470px; transform:scale(1.18) rotate(-3deg); }
+      .person-b { left:320px; bottom:515px; transform:scale(.92) rotate(4deg); opacity:.72; filter:blur(1.2px); }
+      .person-c { right:250px; bottom:522px; transform:scale(.88) rotate(-2deg); opacity:.68; filter:blur(1.4px); }
+      .person-d { right:80px; bottom:450px; transform:scale(1.1) rotate(5deg); }
+      .person-a .arm, .person-b .arm, .person-c .arm, .person-d .arm { position:absolute; width:96px; height:18px; border-radius:18px; background:#060505; top:152px; left:82px; transform:rotate(18deg); }
+      .person-b .arm { left:12px; top:150px; transform:rotate(-13deg); }
+      .person-c .arm { left:70px; top:142px; transform:rotate(-31deg); }
+      .person-d .arm { left:8px; top:158px; transform:rotate(-22deg); }
+      .dartmouth-computer { position:absolute; right:108px; top:685px; width:230px; height:245px; border-radius:12px; background:linear-gradient(180deg,#202424,#0f1110); box-shadow:inset 0 0 44px rgba(214,172,88,.05),0 24px 60px rgba(0,0,0,.44); opacity:.78; }
+      .dartmouth-panel { position:absolute; left:28px; top:34px; width:174px; height:72px; background:#111512; border:1px solid rgba(214,172,88,.16); }
+      .dartmouth-knob { position:absolute; width:22px; height:22px; border-radius:50%; background:#2b2a24; bottom:48px; }
+      .dartmouth-knob.k1 { left:42px; } .dartmouth-knob.k2 { left:86px; } .dartmouth-knob.k3 { left:130px; }
+      .dartmouth-card-slot { position:absolute; left:35px; right:35px; bottom:20px; height:16px; background:#c9b88e; opacity:.58; }
+      .dartmouth-light { position:absolute; width:9px; height:9px; border-radius:50%; background:#b7944b; box-shadow:0 0 13px rgba(183,148,75,.45); opacity:.34; }
+      .dartmouth-light.green { background:#60765a; box-shadow:0 0 13px rgba(96,118,90,.42); }
+      .dartmouth-year { position:absolute; left:92px; top:205px; font-family:LocalMono, monospace; font-size:46px; letter-spacing:.18em; color:rgba(238,226,197,.8); opacity:0; filter:blur(8px); }
+      .dartmouth-title { position:absolute; left:90px; right:90px; bottom:420px; font-size:70px; line-height:1.16; font-weight:900; color:#f2ead8; text-shadow:0 16px 48px rgba(0,0,0,.76); }
+      .dartmouth-subtitle { position:absolute; left:92px; right:92px; bottom:330px; font-size:34px; line-height:1.42; color:#cfc2a9; }
+      .dartmouth-dust { position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(228,214,184,.5); opacity:.26; }
+      .transition-warm { position:absolute; inset:0; pointer-events:none; opacity:0; transform:translateX(-820px) scaleX(.58); background:linear-gradient(90deg, transparent, rgba(245,228,194,.26), rgba(255,244,220,.18), transparent); }
       .typing { padding:72px; font-family:LocalMono, monospace; font-size:42px; line-height:1.7; color:var(--cyan); }
       .dialog { position:absolute; inset:120px 80px; display:flex; align-items:center; justify-content:space-between; color:var(--text); font-size:42px; }
       .dialog span { width:190px; height:190px; border-radius:50%; display:grid; place-items:center; border:1px solid rgba(69,230,255,.55); background:rgba(69,230,255,.08); }
@@ -98,8 +139,16 @@
         </div>
         <div class="turing-year-small">1950</div><div class="turing-question">机器会思考吗？</div><div class="turing-subtitle">图灵提出了一个改变世界的问题。</div>
       </section>
-      <section id="scene-dartmouth" class="scene clip" data-start="13" data-duration="7" data-track-index="3">
-        <div class="year">1956</div><div class="kicker">Dartmouth</div><div class="title">“人工智能”正式诞生</div><div class="graphic archive">PROJECT FILE / 1956<br><b>Artificial Intelligence</b><br>McCarthy · Minsky · Rochester · Shannon<br>RESEARCH NODES CONNECTED</div><div class="body">达特茅斯会议首次正式提出<br>Artificial Intelligence 这一名称。</div><div class="tag">DARTMOUTH</div>
+      <section id="scene-dartmouth" class="scene clip" data-start="13" data-duration="7" data-track-index="3" aria-label="Dartmouth 1956">
+        <div class="dartmouth-camera">
+          <div class="dartmouth-room"></div><div class="dartmouth-window"></div>
+          <div class="dartmouth-board"><span class="chalk-line chalk-small">SUMMER RESEARCH PROJECT</span><span class="chalk-line chalk-main">ARTIFICIAL</span><span class="chalk-line chalk-main">INTELLIGENCE</span></div>
+          <div class="dartmouth-computer"><div class="dartmouth-panel" id="dartmouthPanel"></div><span class="dartmouth-knob k1"></span><span class="dartmouth-knob k2"></span><span class="dartmouth-knob k3"></span><span class="dartmouth-card-slot"></span></div>
+          <div class="dartmouth-table"><span class="dartmouth-paper p1"></span><span class="dartmouth-paper p2"></span><span class="dartmouth-paper p3"></span><span class="dartmouth-notebook"></span><span class="dartmouth-pen"></span><span class="dartmouth-cup"></span><span class="dartmouth-cards"></span></div>
+          <div class="dartmouth-people"><div class="dartmouth-person person-a"><span class="arm"></span></div><div class="dartmouth-person person-b"><span class="arm"></span></div><div class="dartmouth-person person-c"><span class="arm"></span></div><div class="dartmouth-person person-d"><span class="arm"></span></div></div>
+          <div class="dartmouth-dust-field" id="dartmouthDust"></div>
+        </div>
+        <div class="dartmouth-year">1956</div><div class="dartmouth-title">“人工智能”正式诞生</div><div class="dartmouth-subtitle">他们为一种尚不存在的技术，取了一个名字。</div>
       </section>
       <section id="scene-winter" class="scene clip winter" data-start="20" data-duration="8" data-track-index="4">
         <div class="year">1970s—1990s</div><div class="kicker">AI Winter</div><div class="title">热潮之后，是漫长寒冬</div><div class="graphic"><div class="metric" style="top:110px">COMPUTE LIMIT ↓</div><div class="metric" style="top:230px">DATA SPARSE ↓</div><div class="metric" style="top:350px">FUNDING ↓</div></div><div class="body">算力不足、数据稀缺、承诺落空，<br>人工智能研究多次陷入低谷。</div>
@@ -119,7 +168,7 @@
       <section id="scene-agent" class="scene clip final-scene" data-start="61" data-duration="11" data-track-index="9">
         <div class="year">2026 →</div><div class="kicker">Agent Future</div><div class="title">AI不再只是回答问题<br>它开始理解目标，并执行任务</div><div class="graphic"><div class="orbit"></div><div class="agent-core"></div></div><div class="body">Agent、机器人与多模态系统，<br>正在推动下一轮智能革命。</div><div class="final">未来已经开始</div>
       </section>
-      <div class="transition-beam" id="beam"></div><div class="glitch" id="glitch"></div><div class="dip" id="dip"></div>
+      <div class="transition-beam" id="beam"></div><div class="transition-warm" id="warmBeam"></div><div class="glitch" id="glitch"></div><div class="dip" id="dip"></div>
     </div>
     <script>
       const stars = document.getElementById("stars");
@@ -127,11 +176,15 @@
       const openingParticles = document.getElementById("openingParticles");
       const turingLights = document.getElementById("turingLights");
       const turingDust = document.getElementById("turingDust");
+      const dartmouthPanel = document.getElementById("dartmouthPanel");
+      const dartmouthDust = document.getElementById("dartmouthDust");
       const points = Array.from({ length: 42 }, (_, i) => ({ x: (i * 197) % 980 + 48, y: (i * 311) % 1580 + 150, s: (i % 5) + 2 }));
       points.forEach((p) => { const dot = document.createElement("i"); dot.className = "particle"; dot.style.left = `${p.x}px`; dot.style.top = `${p.y}px`; dot.style.opacity = `${0.18 + p.s * 0.08}`; stars.appendChild(dot); });
       points.slice(0, 24).forEach((p, i) => { const dust = document.createElement("i"); dust.className = "opening-particle"; dust.style.left = `${(p.x * 1.09 + i * 13) % 1040 + 20}px`; dust.style.top = `${(p.y * .82 + i * 29) % 1350 + 260}px`; openingParticles.appendChild(dust); });
       Array.from({ length: 9 }, (_, i) => ({ x: 130 + ((i * 83) % 720), y: 330 + ((i * 137) % 390) })).forEach((p) => { const light = document.createElement("i"); light.className = "turing-light"; light.style.left = `${p.x}px`; light.style.top = `${p.y}px`; turingLights.appendChild(light); });
       Array.from({ length: 18 }, (_, i) => ({ x: 80 + ((i * 211) % 910), y: 310 + ((i * 157) % 920) })).forEach((p) => { const dust = document.createElement("i"); dust.className = "turing-dust"; dust.style.left = `${p.x}px`; dust.style.top = `${p.y}px`; turingDust.appendChild(dust); });
+      Array.from({ length: 12 }, (_, i) => ({ x: 22 + ((i * 31) % 132), y: 18 + ((i * 19) % 38), g: i % 4 === 0 })).forEach((p) => { const light = document.createElement("i"); light.className = `dartmouth-light${p.g ? " green" : ""}`; light.style.left = `${p.x}px`; light.style.top = `${p.y}px`; dartmouthPanel.appendChild(light); });
+      Array.from({ length: 20 }, (_, i) => ({ x: 72 + ((i * 191) % 930), y: 210 + ((i * 149) % 1030) })).forEach((p) => { const dust = document.createElement("i"); dust.className = "dartmouth-dust"; dust.style.left = `${p.x}px`; dust.style.top = `${p.y}px`; dartmouthDust.appendChild(dust); });
       const net = [{x:80,y:90},{x:245,y:210},{x:420,y:120},{x:610,y:260},{x:720,y:80},{x:360,y:400},{x:120,y:480},{x:610,y:500}];
       net.forEach((p, i) => { const n = document.createElement("i"); n.className = "node"; n.style.left = `${p.x}px`; n.style.top = `${p.y}px`; openingNetwork.appendChild(n); if (i) { const a = net[i-1]; const line = document.createElement("b"); line.className = "line"; line.style.left = `${a.x + 9}px`; line.style.top = `${a.y + 9}px`; line.style.width = `${Math.hypot(p.x-a.x,p.y-a.y)}px`; line.style.transform = `rotate(${Math.atan2(p.y-a.y,p.x-a.x)}rad)`; openingNetwork.appendChild(line); } });
       for (let i=0;i<40;i+=1) { const px = document.createElement("span"); px.className = "px"; document.querySelector(".pixels").appendChild(px); }
@@ -173,6 +226,28 @@
           tl.to("#scene-turing .turing-volume-light, #scene-turing .turing-light", { opacity: 0.08, duration: 0.7, ease: "power1.out" }, start + 6.3);
           return;
         }
+        if (scene.id === "scene-dartmouth") {
+          tl.fromTo("#scene-dartmouth .dartmouth-camera", { opacity: 0.06, scale: 1.02, x: -8, y: 10 }, { opacity: 1, scale: 1.09, x: 12, y: -5, duration: 7, ease: "power1.out" }, start);
+          tl.fromTo("#scene-dartmouth .dartmouth-room, #scene-dartmouth .dartmouth-window", { opacity: 0 }, { opacity: 1, duration: 0.7, ease: "power1.out" }, start);
+          tl.fromTo("#scene-dartmouth .dartmouth-year", { opacity: 0, filter: "blur(8px)" }, { opacity: 0.65, filter: "blur(0px)", duration: 0.75, ease: "power1.out" }, start + 0.55);
+          tl.fromTo("#scene-dartmouth .dartmouth-table, #scene-dartmouth .dartmouth-people, #scene-dartmouth .dartmouth-computer", { opacity: 0, filter: "blur(7px)" }, { opacity: 1, filter: "blur(0px)", duration: 1.5, ease: "power1.out" }, start + 1);
+          gsap.utils.toArray("#scene-dartmouth .chalk-line").forEach((line, i) => {
+            tl.fromTo(line, { width: 0, opacity: 0.22 }, { width: ["16em", "10em", "13em"][i], opacity: 1, duration: [0.72, 0.82, 0.95][i], ease: "power1.out" }, start + [1.8, 2.75, 3.55][i]);
+          });
+          gsap.utils.toArray("#scene-dartmouth .dartmouth-person").forEach((person, i) => {
+            tl.to(person, { y: -2, duration: 1.8 + i * 0.18, repeat: 1, yoyo: true, ease: "sine.inOut" }, start + 1.1 + i * 0.12);
+          });
+          gsap.utils.toArray("#scene-dartmouth .dartmouth-light").forEach((light, i) => {
+            tl.to(light, { opacity: 0.22 + ((i * 17) % 48) / 100, duration: 1.2 + (i % 5) * 0.2, repeat: 2, yoyo: true, ease: "sine.inOut" }, start + 1 + i * 0.06);
+          });
+          gsap.utils.toArray("#scene-dartmouth .dartmouth-dust").forEach((dust, i) => {
+            tl.to(dust, { x: ((i * 29) % 25) - 12, y: ((i * 37) % 21) - 10, opacity: 0.12 + ((i * 11) % 18) / 100, duration: 5.8 + (i % 4) * 0.3, ease: "sine.inOut" }, start + 0.4 + i * 0.03);
+          });
+          tl.from("#scene-dartmouth .dartmouth-title", { opacity: 0, y: 32, duration: 1.6, ease: "power1.out" }, start + 3.6);
+          tl.from("#scene-dartmouth .dartmouth-subtitle", { opacity: 0, y: 22, duration: 1.4, ease: "power1.out" }, start + 4.7);
+          tl.to("#scene-dartmouth .dartmouth-room, #scene-dartmouth .dartmouth-table, #scene-dartmouth .dartmouth-people, #scene-dartmouth .dartmouth-computer, #scene-dartmouth .dartmouth-window", { opacity: 0.42, duration: 0.9, ease: "power1.out" }, start + 6.1);
+          return;
+        }
         tl.from(scene.querySelector(".year"), { opacity: 0, y: 42, duration: 0.55 }, start + 0.05);
         tl.from(scene.querySelector(".title"), { opacity: 0, y: 66, scale: 0.98, duration: 0.72 }, start + 0.35);
         tl.from(scene.querySelector(".graphic, .opening-core"), { opacity: 0, scale: 0.88, duration: 0.72 }, start + 0.8);
@@ -180,7 +255,8 @@
         if (scene.querySelector(".tag")) tl.from(scene.querySelector(".tag"), { opacity: 0, x: -34, duration: 0.42 }, start + 1.55);
         if (scene.querySelector(".final")) tl.from(scene.querySelector(".final"), { opacity: 0, y: 30, duration: 0.7 }, start + 5.8);
       });
-      [13,35,43,61].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 1, x: 1080, duration: 0.5 }, t - 0.18));
+      [35,43,61].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 1, x: 1080, duration: 0.5 }, t - 0.18));
+      tl.fromTo("#warmBeam", { opacity: 0, x: -820, scaleX: 0.58 }, { opacity: 0.3, x: 820, scaleX: 0.58, duration: 0.38 }, 12.86);
       tl.fromTo("#beam", { opacity: 0, x: -760, scaleX: 0.7 }, { opacity: 0.28, x: 760, scaleX: 0.7, duration: 0.32 }, 5.88);
       [20,28].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 0.62, x: 1080, duration: 0.58 }, t - 0.2));
       tl.fromTo("#glitch", { opacity: 0, x: -32 }, { opacity: 0.75, x: 32, duration: 0.18 }, 50.82);
