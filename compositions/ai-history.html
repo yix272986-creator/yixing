@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>AI发展史：1950—2026</title>
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: LocalHei; src: local("PingFang SC"), local("Microsoft YaHei"), local("Hiragino Sans GB"), local("SimHei"); }
+      @font-face { font-family: LocalMono; src: local("SFMono-Regular"), local("Consolas"), local("Menlo"), local("Courier New"); }
+      :root { --bg:#050816; --deep:#090D22; --cyan:#45E6FF; --blue:#4A7DFF; --purple:#A56BFF; --text:#F2F5FF; --muted:#AAB4D6; --alert:#FF617E; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      body { font-family: LocalHei, sans-serif; color: var(--text); font-variant-numeric: tabular-nums; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: radial-gradient(circle at 50% 20%, #111b42 0%, var(--deep) 38%, var(--bg) 78%); }
+      .backdrop, .stars, .scan, .grid, .transition-beam, .dip { position: absolute; inset: 0; pointer-events: none; }
+      .backdrop { background: radial-gradient(circle at 18% 18%, rgba(69,230,255,.14), transparent 26%), radial-gradient(circle at 82% 12%, rgba(165,107,255,.13), transparent 30%), radial-gradient(circle at 50% 83%, rgba(74,125,255,.12), transparent 35%); }
+      .scan { opacity: .12; background: repeating-linear-gradient(0deg, transparent 0 8px, rgba(242,245,255,.08) 9px); }
+      .grid { opacity: .22; background-image: linear-gradient(rgba(69,230,255,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(165,107,255,.12) 1px, transparent 1px); background-size: 90px 90px; transform: perspective(720px) rotateX(59deg) translateY(500px); transform-origin: bottom; }
+      .particle { position:absolute; width:4px; height:4px; border-radius:50%; background:var(--cyan); opacity:.52; }
+      #scene-opening { transform-origin:50% 50%; background:#03040c; background-image: radial-gradient(circle at 50% 49%, rgba(69,230,255,.09), transparent 25%), radial-gradient(circle at 46% 42%, rgba(242,245,255,.035), transparent 36%); }
+      #scene-opening::before { content:""; position:absolute; inset:-80px; pointer-events:none; background:radial-gradient(circle at 50% 44%, rgba(69,230,255,.16), rgba(69,230,255,.035) 18%, transparent 42%); filter:blur(38px); opacity:.42; }
+      #scene-opening::after { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 50% 48%, transparent 0 44%, rgba(0,0,0,.56) 78%, rgba(0,0,0,.86) 100%), repeating-radial-gradient(circle at 37% 42%, rgba(255,255,255,.038) 0 1px, transparent 1px 5px); opacity:.82; }
+      .opening-particle { position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(242,245,255,.72); box-shadow:0 0 14px rgba(69,230,255,.42); opacity:.46; }
+      .safe { position:absolute; left:90px; right:90px; top:150px; bottom:150px; }
+      .scene { position:absolute; inset:0; opacity:1; }
+      .year { position:absolute; top:170px; left:90px; font-family:LocalMono, monospace; font-size:120px; line-height:1; font-weight:800; color:var(--cyan); letter-spacing:-.06em; text-shadow:0 0 34px rgba(69,230,255,.25); }
+      .kicker { position:absolute; top:310px; left:96px; font-family:LocalMono, monospace; font-size:24px; letter-spacing:.2em; color:var(--muted); text-transform:uppercase; }
+      .title { position:absolute; left:90px; right:90px; top:390px; font-size:82px; line-height:1.08; font-weight:900; letter-spacing:-.04em; color:var(--text); }
+      .body { position:absolute; left:90px; right:90px; bottom:252px; font-size:40px; line-height:1.55; color:var(--text); text-shadow:0 2px 20px rgba(0,0,0,.4); }
+      .tag { position:absolute; left:90px; bottom:178px; padding:15px 22px; border:1px solid rgba(69,230,255,.58); color:var(--cyan); font-family:LocalMono, monospace; font-size:24px; letter-spacing:.18em; background:rgba(9,13,34,.7); }
+      .graphic { position:absolute; left:120px; right:120px; top:690px; height:610px; border:1px solid rgba(69,230,255,.28); background:rgba(9,13,34,.32); box-shadow: inset 0 0 80px rgba(69,230,255,.07), 0 0 60px rgba(0,0,0,.35); overflow:hidden; }
+      .node { position:absolute; width:18px; height:18px; border-radius:50%; background:var(--cyan); box-shadow:0 0 26px var(--cyan); transform-origin:center; }
+      .line { position:absolute; height:3px; background:linear-gradient(90deg, rgba(69,230,255,0), rgba(69,230,255,.28), rgba(242,245,255,.86), rgba(69,230,255,.28), rgba(69,230,255,0)); background-size:150% 100%; transform-origin:left center; opacity:.68; }
+      .opening-core { position:absolute; width:18px; height:18px; left:531px; top:910px; border-radius:50%; background:#f2f5ff; box-shadow:0 0 34px rgba(242,245,255,.72), 0 0 86px rgba(69,230,255,.42); }
+      .opening-network { position:absolute; inset:180px -160px 130px -160px; border:0; opacity:0; filter:blur(12px); }
+      .opening-caption { position:absolute; left:90px; right:90px; top:1190px; font-size:74px; line-height:1.18; font-weight:900; letter-spacing:-.04em; text-align:left; color:var(--text); text-shadow:0 8px 42px rgba(0,0,0,.58), 0 0 30px rgba(69,230,255,.18); }
+      .typing { padding:72px; font-family:LocalMono, monospace; font-size:42px; line-height:1.7; color:var(--cyan); }
+      .dialog { position:absolute; inset:120px 80px; display:flex; align-items:center; justify-content:space-between; color:var(--text); font-size:42px; }
+      .dialog span { width:190px; height:190px; border-radius:50%; display:grid; place-items:center; border:1px solid rgba(69,230,255,.55); background:rgba(69,230,255,.08); }
+      .dialog strong { color:var(--cyan); font-size:130px; }
+      .archive { padding:70px; font-family:LocalMono, monospace; color:var(--muted); font-size:32px; line-height:1.9; }
+      .archive b { color:var(--text); font-family:LocalHei; font-size:44px; }
+      .winter .graphic { border-color:rgba(255,97,126,.36); background:linear-gradient(180deg, rgba(255,97,126,.08), rgba(9,13,34,.42)); }
+      .metric { position:absolute; left:70px; right:70px; height:72px; border-bottom:2px solid rgba(255,97,126,.42); color:var(--alert); font-family:LocalMono, monospace; font-size:32px; }
+      .chess { background-size:152px 152px; background-image: linear-gradient(45deg, rgba(69,230,255,.16) 25%, transparent 25%), linear-gradient(-45deg, rgba(69,230,255,.16) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(165,107,255,.12) 75%), linear-gradient(-45deg, transparent 75%, rgba(165,107,255,.12) 75%); }
+      .branch { position:absolute; left:120px; top:330px; width:500px; height:2px; background:var(--cyan); transform-origin:left center; }
+      .kingmark { position:absolute; right:95px; top:160px; font-size:170px; color:var(--text); text-shadow:0 0 28px rgba(69,230,255,.36); }
+      .pixels { display:grid; grid-template-columns:repeat(8,1fr); grid-template-rows:repeat(5,1fr); gap:14px; padding:52px; }
+      .px { background:rgba(69,230,255,.14); border:1px solid rgba(69,230,255,.22); }
+      .recognition { position:absolute; left:330px; top:190px; width:250px; height:180px; border:4px solid var(--cyan); }
+      .go { background-image: linear-gradient(rgba(69,230,255,.28) 2px, transparent 2px), linear-gradient(90deg, rgba(69,230,255,.28) 2px, transparent 2px); background-size:72px 72px; }
+      .stone { position:absolute; width:64px; height:64px; border-radius:50%; background:#f7f1df; box-shadow:0 0 22px rgba(242,245,255,.38); }
+      .stone.black { background:#070913; border:1px solid rgba(242,245,255,.18); }
+      .move37 { left:365px; top:250px; background:var(--cyan); box-shadow:0 0 44px var(--cyan); }
+      .generative { padding:70px; display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+      .card { border:1px solid rgba(69,230,255,.28); background:rgba(242,245,255,.045); padding:28px; font-size:28px; line-height:1.45; color:var(--muted); }
+      .model-core { position:absolute; left:312px; top:210px; width:150px; height:150px; border-radius:50%; background:radial-gradient(circle, var(--cyan), var(--purple)); box-shadow:0 0 70px rgba(69,230,255,.42); }
+      .agent-core { position:absolute; left:280px; top:145px; width:300px; height:300px; border-radius:50%; background:conic-gradient(from 0deg, var(--cyan), var(--blue), var(--purple), var(--cyan)); box-shadow:0 0 80px rgba(165,107,255,.38); }
+      .orbit { position:absolute; border:1px solid rgba(69,230,255,.35); border-radius:50%; left:190px; top:70px; width:480px; height:480px; }
+      .final { position:absolute; left:90px; right:90px; bottom:178px; font-size:52px; font-weight:900; text-align:center; color:var(--text); }
+      .transition-beam { opacity:0; transform:translateX(-1120px); background:linear-gradient(90deg, transparent, rgba(69,230,255,.15), rgba(165,107,255,.22), transparent); }
+      .glitch { position:absolute; inset:0; opacity:0; background:linear-gradient(90deg, rgba(69,230,255,.14), transparent 30%, rgba(165,107,255,.16)); }
+      .dip { background:#000; opacity:0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="ai-history" data-start="0" data-duration="72" data-width="1080" data-height="1920" data-fps="30">
+      <div class="backdrop"></div><div class="stars" id="stars"></div><div class="grid"></div><div class="scan"></div>
+      <section id="scene-opening" class="scene clip opening" data-start="0" data-duration="6" data-track-index="1">
+        <div class="opening-core"></div><div class="opening-network" id="openingNetwork"></div><div class="opening-particles" id="openingParticles"></div>
+        <div class="opening-caption">如果今天没有 AI。</div>
+      </section>
+      <section id="scene-turing" class="scene clip" data-start="6" data-duration="7" data-track-index="2">
+        <div class="year">1950</div><div class="kicker">Turing</div><div class="title">机器会思考吗？</div><div class="graphic typing">&gt; HUMAN<br>&gt; MACHINE<br>&gt; INTELLIGENCE ?<div class="dialog"><span>人</span><strong>?</strong><span>机</span></div></div><div class="body">艾伦·图灵提出了一个影响至今的问题：<br>机器能否表现出人类智能？</div><div class="tag">TURING TEST</div>
+      </section>
+      <section id="scene-dartmouth" class="scene clip" data-start="13" data-duration="7" data-track-index="3">
+        <div class="year">1956</div><div class="kicker">Dartmouth</div><div class="title">“人工智能”正式诞生</div><div class="graphic archive">PROJECT FILE / 1956<br><b>Artificial Intelligence</b><br>McCarthy · Minsky · Rochester · Shannon<br>RESEARCH NODES CONNECTED</div><div class="body">达特茅斯会议首次正式提出<br>Artificial Intelligence 这一名称。</div><div class="tag">DARTMOUTH</div>
+      </section>
+      <section id="scene-winter" class="scene clip winter" data-start="20" data-duration="8" data-track-index="4">
+        <div class="year">1970s—1990s</div><div class="kicker">AI Winter</div><div class="title">热潮之后，是漫长寒冬</div><div class="graphic"><div class="metric" style="top:110px">COMPUTE LIMIT ↓</div><div class="metric" style="top:230px">DATA SPARSE ↓</div><div class="metric" style="top:350px">FUNDING ↓</div></div><div class="body">算力不足、数据稀缺、承诺落空，<br>人工智能研究多次陷入低谷。</div>
+      </section>
+      <section id="scene-deep-blue" class="scene clip" data-start="28" data-duration="7" data-track-index="5">
+        <div class="year">1997</div><div class="kicker">Deep Blue</div><div class="title">机器击败国际象棋世界冠军</div><div class="graphic chess"><div class="kingmark">♔</div><div class="branch" style="transform:rotate(-25deg)"></div><div class="branch" style="transform:rotate(3deg)"></div><div class="branch" style="transform:rotate(28deg)"></div></div><div class="body">IBM Deep Blue 战胜卡斯帕罗夫，<br>成为人工智能历史上的标志性时刻。</div><div class="tag">DEEP BLUE</div>
+      </section>
+      <section id="scene-alexnet" class="scene clip" data-start="35" data-duration="8" data-track-index="6">
+        <div class="year">2012</div><div class="kicker">AlexNet</div><div class="title">深度学习迎来突破</div><div class="graphic pixels"><span class="recognition"></span></div><div class="body">AlexNet 在图像识别竞赛中表现突出，<br>神经网络重新成为技术中心。</div><div class="tag">DEEP LEARNING</div>
+      </section>
+      <section id="scene-alphago" class="scene clip" data-start="43" data-duration="8" data-track-index="7">
+        <div class="year">2016</div><div class="kicker">AlphaGo</div><div class="title">AlphaGo 震撼世界</div><div class="graphic go"><span class="stone" style="left:215px;top:178px"></span><span class="stone black" style="left:503px;top:322px"></span><span class="stone move37"></span></div><div class="body">人工智能战胜顶尖围棋选手，<br>展现出超越传统规则搜索的能力。</div><div class="tag">MOVE 37</div>
+      </section>
+      <section id="scene-generative" class="scene clip" data-start="51" data-duration="10" data-track-index="8">
+        <div class="year">2022</div><div class="kicker">Generative AI</div><div class="title">ChatGPT 走进大众生活</div><div class="graphic generative"><div class="card">文字生成<br>Prompt → Answer</div><div class="card">代码辅助<br>Function → System</div><div class="card">图像框<br>Pixels → Concepts</div><div class="card">对话界面<br>Human ↔ Model</div><span class="model-core"></span></div><div class="body">生成式人工智能开始理解语言、<br>创作内容，并改变人机交互方式。</div><div class="tag">GENERATIVE AI</div>
+      </section>
+      <section id="scene-agent" class="scene clip final-scene" data-start="61" data-duration="11" data-track-index="9">
+        <div class="year">2026 →</div><div class="kicker">Agent Future</div><div class="title">AI不再只是回答问题<br>它开始理解目标，并执行任务</div><div class="graphic"><div class="orbit"></div><div class="agent-core"></div></div><div class="body">Agent、机器人与多模态系统，<br>正在推动下一轮智能革命。</div><div class="final">未来已经开始</div>
+      </section>
+      <div class="transition-beam" id="beam"></div><div class="glitch" id="glitch"></div><div class="dip" id="dip"></div>
+    </div>
+    <script>
+      const stars = document.getElementById("stars");
+      const openingNetwork = document.getElementById("openingNetwork");
+      const openingParticles = document.getElementById("openingParticles");
+      const points = Array.from({ length: 42 }, (_, i) => ({ x: (i * 197) % 980 + 48, y: (i * 311) % 1580 + 150, s: (i % 5) + 2 }));
+      points.forEach((p) => { const dot = document.createElement("i"); dot.className = "particle"; dot.style.left = `${p.x}px`; dot.style.top = `${p.y}px`; dot.style.opacity = `${0.18 + p.s * 0.08}`; stars.appendChild(dot); });
+      points.slice(0, 24).forEach((p, i) => { const dust = document.createElement("i"); dust.className = "opening-particle"; dust.style.left = `${(p.x * 1.09 + i * 13) % 1040 + 20}px`; dust.style.top = `${(p.y * .82 + i * 29) % 1350 + 260}px`; openingParticles.appendChild(dust); });
+      const net = [{x:80,y:90},{x:245,y:210},{x:420,y:120},{x:610,y:260},{x:720,y:80},{x:360,y:400},{x:120,y:480},{x:610,y:500}];
+      net.forEach((p, i) => { const n = document.createElement("i"); n.className = "node"; n.style.left = `${p.x}px`; n.style.top = `${p.y}px`; openingNetwork.appendChild(n); if (i) { const a = net[i-1]; const line = document.createElement("b"); line.className = "line"; line.style.left = `${a.x + 9}px`; line.style.top = `${a.y + 9}px`; line.style.width = `${Math.hypot(p.x-a.x,p.y-a.y)}px`; line.style.transform = `rotate(${Math.atan2(p.y-a.y,p.x-a.x)}rad)`; openingNetwork.appendChild(line); } });
+      for (let i=0;i<40;i+=1) { const px = document.createElement("span"); px.className = "px"; document.querySelector(".pixels").appendChild(px); }
+      const tl = gsap.timeline({ paused: true });
+      document.querySelectorAll(".scene").forEach((scene) => {
+        const start = Number(scene.dataset.start);
+        if (scene.id === "scene-opening") {
+          tl.from("#scene-opening .opening-core", { opacity: 0, scale: 0.62, duration: 0.8 }, start + 0.05);
+          tl.to("#scene-opening .opening-core", { opacity: 0.58, scale: 0.88, duration: 1.45, repeat: 3, yoyo: true, ease: "sine.inOut" }, start + 0.55);
+          tl.fromTo("#scene-opening .opening-network", { opacity: 0, filter: "blur(12px)" }, { opacity: 1, filter: "blur(0px)", duration: 2, ease: "power1.out" }, start + 0.8);
+          tl.from("#scene-opening .opening-caption", { opacity: 0, y: 38, duration: 1 }, start + 3.15);
+          tl.fromTo("#scene-opening", { scale: 1, x: -12, y: -8 }, { scale: 1.08, x: 12, y: 8, duration: 6, ease: "power1.out" }, start);
+          gsap.utils.toArray("#scene-opening .node").forEach((node, i) => {
+            tl.to(node, { scale: 0.9 + ((i * 37) % 25) / 100, opacity: 0.5 + ((i * 29) % 50) / 100, duration: 1.8 + (i % 4) * 0.45, repeat: 1, yoyo: true, ease: "sine.inOut" }, start + ((i * 17) % 11) / 10);
+          });
+          gsap.utils.toArray("#scene-opening .line").forEach((line, i) => {
+            tl.to(line, { backgroundPosition: "220% 0", duration: 2.5 + (i % 3) * 0.28, repeat: 1, ease: "none" }, start + i * 0.18);
+          });
+          gsap.utils.toArray("#scene-opening .opening-particle").forEach((dot, i) => {
+            tl.to(dot, { x: ((i * 31) % 23) - 11, y: ((i * 43) % 27) - 13, opacity: 0.18 + ((i * 19) % 30) / 100, duration: 4.2 + (i % 5) * 0.32, repeat: 1, yoyo: true, ease: "sine.inOut" }, start + i * 0.08);
+          });
+          return;
+        }
+        tl.from(scene.querySelector(".year"), { opacity: 0, y: 42, duration: 0.55 }, start + 0.05);
+        tl.from(scene.querySelector(".title"), { opacity: 0, y: 66, scale: 0.98, duration: 0.72 }, start + 0.35);
+        tl.from(scene.querySelector(".graphic, .opening-core"), { opacity: 0, scale: 0.88, duration: 0.72 }, start + 0.8);
+        tl.from(scene.querySelector(".body"), { opacity: 0, y: 36, duration: 0.55 }, start + 1.15);
+        if (scene.querySelector(".tag")) tl.from(scene.querySelector(".tag"), { opacity: 0, x: -34, duration: 0.42 }, start + 1.55);
+        if (scene.querySelector(".final")) tl.from(scene.querySelector(".final"), { opacity: 0, y: 30, duration: 0.7 }, start + 5.8);
+      });
+      [6,13,35,43,61].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 1, x: 1080, duration: 0.5 }, t - 0.18));
+      [20,28].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 0.62, x: 1080, duration: 0.58 }, t - 0.2));
+      tl.fromTo("#glitch", { opacity: 0, x: -32 }, { opacity: 0.75, x: 32, duration: 0.18 }, 50.82);
+      tl.to("#glitch", { opacity: 0, duration: 0.18 }, 51.02);
+      tl.to(".final-scene", { opacity: 0, duration: 2.6 }, 69.2);
+      tl.to("#dip", { opacity: 1, duration: 2.8 }, 69.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["ai-history"] = tl;
+    </script>
+  </body>
+</html>
