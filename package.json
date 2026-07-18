@@ -1,0 +1,18 @@
+{
+  "name": "yixing",
+  "version": "1.0.0",
+  "description": "中文竖屏 HyperFrames 短视频《AI发展史：1950—2026》",
+  "private": true,
+  "scripts": {
+    "lint": "npx hyperframes lint",
+    "validate": "npm run lint && node scripts/validate-project.mjs",
+    "inspect": "npx hyperframes inspect --samples 15",
+    "preview": "npx hyperframes preview --port 3002 --background --no-open",
+    "render:draft": "npx hyperframes render --composition compositions/ai-history.html --output renders/ai-history-draft.mp4 --quality draft --workers 1",
+    "render:final": "npx hyperframes render --composition compositions/ai-history.html --output renders/ai-history-final.mp4 --quality high --fps 30 --workers 1"
+  },
+  "devDependencies": {
+    "gsap": "^3.15.0",
+    "hyperframes": "^0.7.63"
+  }
+}

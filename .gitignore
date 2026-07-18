@@ -1,0 +1,10 @@
+node_modules/
+renders/*.mp4
+renders/*.webm
+renders/*.mov
+renders/*.gif
+renders/*.png
+.debug/
+.hyperframes/
+*.log
+npm-debug.log*
