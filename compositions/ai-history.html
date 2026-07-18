@@ -32,6 +32,18 @@
       .opening-vignette { position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 50% 47%, transparent 0 45%, rgba(0,0,0,.58) 77%, rgba(0,0,0,.92) 100%); }
       .opening-caption { position:absolute; left:90px; right:90px; top:1218px; font-size:84px; line-height:1.12; font-weight:900; letter-spacing:-.055em; text-align:left; color:#f4eddf; text-shadow:0 10px 46px rgba(0,0,0,.72); filter:blur(0px); }
       .opening-impact-flash { position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 50% 43%, rgba(245,232,202,.32), rgba(245,232,202,.08) 34%, transparent 68%); opacity:0; }
+      .opening-depth-line { position:absolute; height:1px; background:rgba(210,232,238,.11); opacity:0; transform-origin:left center; }
+      .opening-data-mark { position:absolute; font-family:LocalMono, monospace; font-size:18px; letter-spacing:.14em; color:rgba(210,232,238,.72); opacity:0; }
+      .opening-wave { position:absolute; left:50%; top:672px; width:22px; height:22px; border:1px solid rgba(210,232,238,.5); border-radius:50%; transform:translate(-50%,-50%); opacity:0; }
+      .opening-break { position:absolute; width:54px; height:2px; background:rgba(210,232,238,.26); opacity:0; }
+      .tech-overlay { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:20; mix-blend-mode:screen; }
+      .tech-depth-grid, .tech-data-particles, .tech-scan-fragments, .tech-interface-marks, .tech-chromatic-noise { position:absolute; inset:0; pointer-events:none; }
+      .tech-depth-grid { opacity:.075; background:linear-gradient(115deg, transparent 0 66%, rgba(210,232,238,.16) 66.2%, transparent 66.5%), linear-gradient(73deg, transparent 0 78%, rgba(125,185,195,.13) 78.2%, transparent 78.45%); }
+      .tech-particle { position:absolute; width:2px; height:2px; border-radius:50%; background:rgba(210,232,238,.7); opacity:.18; }
+      .tech-fragment { position:absolute; width:130px; height:1px; background:linear-gradient(90deg, transparent, rgba(210,232,238,.55), transparent); opacity:0; }
+      .tech-mark { position:absolute; font-family:LocalMono, monospace; font-size:14px; letter-spacing:.12em; color:rgba(210,232,238,.62); opacity:0; }
+      .tech-mark::before { content:"+"; margin-right:8px; color:rgba(125,185,195,.7); }
+      .tech-chromatic-noise { opacity:.035; background:repeating-linear-gradient(95deg, rgba(210,232,238,.04) 0 1px, transparent 1px 8px); }
       .safe { position:absolute; left:90px; right:90px; top:150px; bottom:150px; }
       .scene { position:absolute; inset:0; opacity:1; }
       .year { position:absolute; top:170px; left:90px; font-family:LocalMono, monospace; font-size:120px; line-height:1; font-weight:800; color:var(--cyan); letter-spacing:-.06em; text-shadow:0 0 34px rgba(69,230,255,.25); }
@@ -58,6 +70,13 @@
       .turing-question { position:absolute; left:90px; right:90px; bottom:455px; font-size:72px; line-height:1.16; font-weight:900; color:#f2f5ff; text-shadow:0 14px 42px rgba(0,0,0,.78); }
       .turing-subtitle { position:absolute; left:92px; right:92px; bottom:365px; font-size:36px; line-height:1.38; color:#cdd4e8; }
       .turing-dust { position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(226,220,204,.58); opacity:.32; }
+      .turing-machine-scan { position:absolute; right:100px; top:680px; width:205px; height:1px; background:linear-gradient(90deg, transparent, rgba(210,232,238,.68), transparent); opacity:0; transform-origin:left center; }
+      .turing-projection { position:absolute; left:720px; bottom:615px; font-family:LocalMono, monospace; font-size:18px; line-height:1.5; color:rgba(210,232,238,.48); opacity:0; }
+      .turing-current { position:absolute; right:130px; top:765px; width:105px; height:2px; background:linear-gradient(90deg, rgba(210,232,238,0), rgba(210,232,238,.38), rgba(210,232,238,0)); opacity:0; }
+      .turing-focus { position:absolute; bottom:502px; width:28px; height:28px; border-top:2px solid rgba(210,232,238,.42); opacity:0; }
+      .turing-focus.left { left:76px; border-left:2px solid rgba(210,232,238,.42); }
+      .turing-focus.right { right:76px; border-right:2px solid rgba(210,232,238,.42); }
+      .turing-coordinate { position:absolute; right:92px; top:1055px; font-family:LocalMono, monospace; font-size:16px; line-height:1.7; color:rgba(210,232,238,.36); opacity:0; }
       #scene-dartmouth { background:#070605; overflow:hidden; }
       #scene-dartmouth::after { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 52% 46%, transparent 0 48%, rgba(0,0,0,.48) 78%, rgba(0,0,0,.88) 100%), repeating-radial-gradient(circle at 41% 35%, rgba(255,245,220,.022) 0 1px, transparent 1px 6px); opacity:.76; }
       .dartmouth-camera { position:absolute; inset:0; transform-origin:54% 52%; }
@@ -98,6 +117,14 @@
       .dartmouth-title { position:absolute; left:90px; right:90px; bottom:420px; font-size:70px; line-height:1.16; font-weight:900; color:#f2ead8; text-shadow:0 16px 48px rgba(0,0,0,.76); }
       .dartmouth-subtitle { position:absolute; left:92px; right:92px; bottom:330px; font-size:34px; line-height:1.42; color:#cfc2a9; }
       .dartmouth-dust { position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(228,214,184,.5); opacity:.26; }
+      .dartmouth-relation { position:absolute; inset:0; opacity:0; }
+      .relation-line { position:absolute; height:1px; background:linear-gradient(90deg, transparent, rgba(210,232,238,.42), transparent); transform-origin:left center; opacity:.42; }
+      .relation-node { position:absolute; width:5px; height:5px; border-radius:50%; background:rgba(210,232,238,.55); }
+      .board-detect { position:absolute; right:110px; top:215px; font-family:LocalMono, monospace; font-size:15px; line-height:1.5; color:rgba(210,232,238,.48); opacity:0; }
+      .document-scan { position:absolute; left:330px; bottom:575px; width:150px; height:96px; background:linear-gradient(105deg, transparent, rgba(210,232,238,.24), transparent); opacity:0; transform:rotate(-9deg); }
+      .document-label { position:absolute; left:326px; bottom:684px; font-family:LocalMono, monospace; font-size:14px; line-height:1.4; color:rgba(210,232,238,.45); opacity:0; }
+      .computer-matrix { position:absolute; right:65px; top:630px; width:120px; height:78px; opacity:0; background:radial-gradient(circle, rgba(210,232,238,.38) 0 2px, transparent 3px); background-size:18px 18px; }
+      .term-fragment { position:absolute; font-family:LocalMono, monospace; font-size:15px; color:rgba(210,232,238,.42); opacity:0; }
       .transition-warm { position:absolute; inset:0; pointer-events:none; opacity:0; transform:translateX(-820px) scaleX(.58); background:linear-gradient(90deg, transparent, rgba(245,228,194,.26), rgba(255,244,220,.18), transparent); }
       .typing { padding:72px; font-family:LocalMono, monospace; font-size:42px; line-height:1.7; color:var(--cyan); }
       .dialog { position:absolute; inset:120px 80px; display:flex; align-items:center; justify-content:space-between; color:var(--text); font-size:42px; }
@@ -135,6 +162,7 @@
         <div class="opening-camera">
           <div class="opening-darkness"></div><div class="opening-light-field"></div><div class="opening-lens-flare"></div>
           <div class="opening-network" id="openingNetwork"></div><div class="opening-core"></div><div class="opening-dust" id="openingDust"></div>
+          <div class="opening-depth" id="openingDepth"></div><div class="opening-marks" id="openingMarks"></div><div class="opening-waves"><span class="opening-wave w1"></span><span class="opening-wave w2"></span></div><div class="opening-breaks" id="openingBreaks"></div>
           <div class="opening-grain"></div><div class="opening-vignette"></div>
         </div>
         <div class="opening-caption">如果 AI 从未诞生。</div><div class="opening-impact-flash"></div>
@@ -143,10 +171,10 @@
         <div class="turing-camera">
           <div class="turing-lab-bg"></div><div class="turing-volume-light"></div>
           <div class="turing-cabinets"><div class="turing-cabinet"></div><div class="turing-cabinet"></div><div class="turing-cabinet"></div></div>
-          <div class="turing-lights" id="turingLights"></div><div class="turing-dust-field" id="turingDust"></div>
-          <div class="turing-paper"><span class="type-line">MACHINE</span><span class="type-line">CAN</span><span class="type-line">THINK?</span></div>
+          <div class="turing-lights" id="turingLights"></div><div class="turing-dust-field" id="turingDust"></div><div class="turing-machine-scan"></div><div class="turing-current"></div>
+          <div class="turing-paper"><span class="type-line">MACHINE</span><span class="type-line">CAN</span><span class="type-line">THINK?</span></div><div class="turing-projection">01 / A<br>0 ? 1<br>MIND?</div>
         </div>
-        <div class="turing-year-small">1950</div><div class="turing-question">机器会思考吗？</div><div class="turing-subtitle">图灵提出了一个改变世界的问题。</div>
+        <div class="turing-year-small">1950</div><div class="turing-focus left"></div><div class="turing-focus right"></div><div class="turing-question">机器会思考吗？</div><div class="turing-subtitle">图灵提出了一个改变世界的问题。</div><div class="turing-coordinate">1950<br>QUESTION_01<br>MACHINE / MIND</div>
       </section>
       <section id="scene-dartmouth" class="scene clip" data-start="13" data-duration="7" data-track-index="3" aria-label="Dartmouth 1956">
         <div class="dartmouth-camera">
@@ -155,6 +183,7 @@
           <div class="dartmouth-computer"><div class="dartmouth-panel" id="dartmouthPanel"></div><span class="dartmouth-knob k1"></span><span class="dartmouth-knob k2"></span><span class="dartmouth-knob k3"></span><span class="dartmouth-card-slot"></span></div>
           <div class="dartmouth-table"><span class="dartmouth-paper p1"></span><span class="dartmouth-paper p2"></span><span class="dartmouth-paper p3"></span><span class="dartmouth-notebook"></span><span class="dartmouth-pen"></span><span class="dartmouth-cup"></span><span class="dartmouth-cards"></span></div>
           <div class="dartmouth-people"><div class="dartmouth-person person-a"><span class="arm"></span></div><div class="dartmouth-person person-b"><span class="arm"></span></div><div class="dartmouth-person person-c"><span class="arm"></span></div><div class="dartmouth-person person-d"><span class="arm"></span></div></div>
+          <div class="dartmouth-relation" id="dartmouthRelation"></div><div class="computer-matrix"></div><div class="document-scan"></div><div class="document-label">PROJECT<br>SUMMER<br>RESEARCH</div><div class="board-detect">TERM DETECTED<br>ARTIFICIAL INTELLIGENCE<br>1956</div><div class="term-fragments" id="termFragments"></div>
           <div class="dartmouth-dust-field" id="dartmouthDust"></div>
         </div>
         <div class="dartmouth-year">1956</div><div class="dartmouth-title">“人工智能”正式诞生</div><div class="dartmouth-subtitle">他们为一种尚不存在的技术，取了一个名字。</div>
@@ -177,16 +206,25 @@
       <section id="scene-agent" class="scene clip final-scene" data-start="61" data-duration="11" data-track-index="9">
         <div class="year">2026 →</div><div class="kicker">Agent Future</div><div class="title">AI不再只是回答问题<br>它开始理解目标，并执行任务</div><div class="graphic"><div class="orbit"></div><div class="agent-core"></div></div><div class="body">Agent、机器人与多模态系统，<br>正在推动下一轮智能革命。</div><div class="final">未来已经开始</div>
       </section>
+      <div class="tech-overlay" id="techOverlay"><div class="tech-depth-grid"></div><div class="tech-data-particles" id="techParticles"></div><div class="tech-scan-fragments" id="techFragments"></div><div class="tech-interface-marks" id="techMarks"></div><div class="tech-chromatic-noise"></div></div>
       <div class="transition-beam" id="beam"></div><div class="transition-warm" id="warmBeam"></div><div class="glitch" id="glitch"></div><div class="dip" id="dip"></div>
     </div>
     <script>
       const stars = document.getElementById("stars");
       const openingNetwork = document.getElementById("openingNetwork");
       const openingDust = document.getElementById("openingDust");
+      const openingDepth = document.getElementById("openingDepth");
+      const openingMarks = document.getElementById("openingMarks");
+      const openingBreaks = document.getElementById("openingBreaks");
+      const techParticles = document.getElementById("techParticles");
+      const techFragments = document.getElementById("techFragments");
+      const techMarks = document.getElementById("techMarks");
       const turingLights = document.getElementById("turingLights");
       const turingDust = document.getElementById("turingDust");
       const dartmouthPanel = document.getElementById("dartmouthPanel");
       const dartmouthDust = document.getElementById("dartmouthDust");
+      const dartmouthRelation = document.getElementById("dartmouthRelation");
+      const termFragments = document.getElementById("termFragments");
       const points = Array.from({ length: 42 }, (_, i) => ({ x: (i * 197) % 980 + 48, y: (i * 311) % 1580 + 150, s: (i % 5) + 2 }));
       points.forEach((p) => { const dot = document.createElement("i"); dot.className = "particle"; dot.style.left = `${p.x}px`; dot.style.top = `${p.y}px`; dot.style.opacity = `${0.18 + p.s * 0.08}`; stars.appendChild(dot); });
       const openingNodes = [[486,500,24,.92],[430,430,15,.82],[548,426,14,.78],[390,545,13,.72],[595,552,13,.7],[310,390,10,.62],[675,385,10,.62],[280,600,9,.58],[725,640,9,.56],[480,290,9,.58],[500,760,9,.56],[170,325,7,.46],[820,340,7,.46],[140,700,7,.43],[855,760,7,.42],[245,215,6,.38],[710,190,6,.37],[210,880,6,.36],[770,940,6,.35],[50,520,5,.3],[930,520,5,.3],[380,1040,5,.32],[610,1085,5,.31],[500,70,5,.28]];
@@ -194,10 +232,20 @@
       openingEdges.forEach(([a,b]) => { const p = openingNodes[a], q = openingNodes[b]; const line = document.createElement("b"); line.className = "line"; line.dataset.delay = `${Math.hypot(p[0]-486,p[1]-500) / 760}`; line.style.left = `${p[0]}px`; line.style.top = `${p[1]}px`; line.style.width = `${Math.hypot(q[0]-p[0],q[1]-p[1])}px`; line.style.transform = `rotate(${Math.atan2(q[1]-p[1],q[0]-p[0])}rad)`; openingNetwork.appendChild(line); });
       openingNodes.forEach((p, i) => { const node = document.createElement("i"); node.className = "node"; node.dataset.baseOpacity = `${p[3]}`; node.dataset.delay = `${Math.hypot(p[0]-486,p[1]-500) / 760}`; node.style.left = `${p[0] - p[2] / 2}px`; node.style.top = `${p[1] - p[2] / 2}px`; node.style.width = `${p[2]}px`; node.style.height = `${p[2]}px`; node.style.opacity = 0; openingNetwork.appendChild(node); });
       points.slice(0, 22).forEach((p, i) => { const dust = document.createElement("i"); dust.className = "opening-dust-particle"; dust.style.left = `${(p.x * 1.07 + i * 17) % 980 + 45}px`; dust.style.top = `${(p.y * .7 + i * 31) % 780 + 330}px`; dust.style.width = `${1 + (i % 3)}px`; dust.style.height = `${1 + (i % 3)}px`; openingDust.appendChild(dust); });
+      [[80,260,420,-8],[620,330,310,11],[130,990,470,5],[690,1180,260,-12],[260,720,580,16]].forEach((d) => { const line = document.createElement("i"); line.className = "opening-depth-line"; line.style.left = `${d[0]}px`; line.style.top = `${d[1]}px`; line.style.width = `${d[2]}px`; line.style.transform = `rotate(${d[3]}deg)`; openingDepth.appendChild(line); });
+      ["001","SIGNAL","NODE","SYN","0.01","101"].forEach((label, i) => { const mark = document.createElement("i"); mark.className = "opening-data-mark"; mark.textContent = label; mark.style.left = `${[122,780,240,840,370,650][i]}px`; mark.style.top = `${[360,430,820,910,240,1120][i]}px`; openingMarks.appendChild(mark); });
+      Array.from({ length: 8 }, (_, i) => { const br = document.createElement("i"); br.className = "opening-break"; br.style.left = `${110 + ((i * 137) % 760)}px`; br.style.top = `${410 + ((i * 211) % 620)}px`; br.style.transform = `rotate(${((i * 23) % 50) - 25}deg)`; openingBreaks.appendChild(br); });
+      Array.from({ length: 28 }, (_, i) => { const dot = document.createElement("i"); dot.className = "tech-particle"; dot.style.left = `${40 + ((i * 271) % 1000)}px`; dot.style.top = `${120 + ((i * 157) % 1600)}px`; dot.style.opacity = `${0.08 + (i % 5) * 0.025}`; dot.style.transform = `scale(${0.75 + (i % 4) * 0.22})`; techParticles.appendChild(dot); });
+      Array.from({ length: 7 }, (_, i) => { const frag = document.createElement("i"); frag.className = "tech-fragment"; frag.style.left = `${55 + ((i * 173) % 850)}px`; frag.style.top = `${230 + ((i * 269) % 1380)}px`; frag.style.transform = `rotate(${i % 2 ? 90 : 0}deg)`; techFragments.appendChild(frag); });
+      ["SYS.READ","T-1950","VECTOR","INDEX","SIGNAL","MEM"].forEach((label, i) => { const mark = document.createElement("i"); mark.className = "tech-mark"; mark.textContent = label; mark.style.left = `${[74,812,92,780,126,850][i]}px`; mark.style.top = `${[310,465,980,1120,1480,1540][i]}px`; techMarks.appendChild(mark); });
       Array.from({ length: 9 }, (_, i) => ({ x: 130 + ((i * 83) % 720), y: 330 + ((i * 137) % 390) })).forEach((p) => { const light = document.createElement("i"); light.className = "turing-light"; light.style.left = `${p.x}px`; light.style.top = `${p.y}px`; turingLights.appendChild(light); });
       Array.from({ length: 18 }, (_, i) => ({ x: 80 + ((i * 211) % 910), y: 310 + ((i * 157) % 920) })).forEach((p) => { const dust = document.createElement("i"); dust.className = "turing-dust"; dust.style.left = `${p.x}px`; dust.style.top = `${p.y}px`; turingDust.appendChild(dust); });
       Array.from({ length: 12 }, (_, i) => ({ x: 22 + ((i * 31) % 132), y: 18 + ((i * 19) % 38), g: i % 4 === 0 })).forEach((p) => { const light = document.createElement("i"); light.className = `dartmouth-light${p.g ? " green" : ""}`; light.style.left = `${p.x}px`; light.style.top = `${p.y}px`; dartmouthPanel.appendChild(light); });
       Array.from({ length: 20 }, (_, i) => ({ x: 72 + ((i * 191) % 930), y: 210 + ((i * 149) % 1030) })).forEach((p) => { const dust = document.createElement("i"); dust.className = "dartmouth-dust"; dust.style.left = `${p.x}px`; dust.style.top = `${p.y}px`; dartmouthDust.appendChild(dust); });
+      const relationPoints = [[190,930],[392,900],[690,890],[880,940]];
+      [[0,1],[1,2],[2,3],[0,2]].forEach(([a,b]) => { const p = relationPoints[a], q = relationPoints[b]; const line = document.createElement("i"); line.className = "relation-line"; line.style.left = `${p[0]}px`; line.style.top = `${p[1]}px`; line.style.width = `${Math.hypot(q[0]-p[0],q[1]-p[1])}px`; line.style.transform = `rotate(${Math.atan2(q[1]-p[1],q[0]-p[0])}rad)`; dartmouthRelation.appendChild(line); });
+      relationPoints.forEach((p) => { const node = document.createElement("i"); node.className = "relation-node"; node.style.left = `${p[0]}px`; node.style.top = `${p[1]}px`; dartmouthRelation.appendChild(node); });
+      ["AI","01","INTEL","LOGIC","AI","01","TERM","1956","LOGIC","AI"].forEach((label, i) => { const frag = document.createElement("i"); frag.className = "term-fragment"; frag.textContent = label; frag.style.left = `${560 + ((i * 61) % 330)}px`; frag.style.top = `${430 + ((i * 47) % 180)}px`; termFragments.appendChild(frag); });
       for (let i=0;i<40;i+=1) { const px = document.createElement("span"); px.className = "px"; document.querySelector(".pixels").appendChild(px); }
       const tl = gsap.timeline({ paused: true });
       document.querySelectorAll(".scene").forEach((scene) => {
@@ -224,8 +272,12 @@
           gsap.utils.toArray("#scene-opening .opening-dust-particle").forEach((dot, i) => {
             tl.to(dot, { x: ((i * 29) % 23) - 11, y: ((i * 31) % 17) - 8, opacity: 0.14 + ((i * 7) % 18) / 100, duration: 3.6 + (i % 6) * 0.28, ease: "sine.inOut" }, start + 1.15 + i * 0.03);
           });
+          tl.fromTo("#scene-opening .opening-depth-line", { opacity: 0, x: -8 }, { opacity: 0.16, x: 0, duration: 0.55, stagger: 0.08, yoyo: true, repeat: 1, ease: "sine.inOut" }, start + 1.75);
+          tl.fromTo("#scene-opening .opening-data-mark", { opacity: 0, y: 6 }, { opacity: 0.24, y: 0, duration: 0.42, stagger: 0.18, ease: "power1.out" }, start + 2.35);
           tl.to("#scene-opening .node", { opacity: 1, scale: 1.18, duration: 0.15, yoyo: true, repeat: 1, ease: "power1.out" }, start + 5.25);
           tl.to("#scene-opening .line", { opacity: 0.72, duration: 0.15, yoyo: true, repeat: 1, ease: "power1.out" }, start + 5.25);
+          tl.fromTo("#scene-opening .opening-wave", { opacity: 0.2, scale: 0.4 }, { opacity: 0, scale: 18, duration: 0.34, stagger: 0.08, ease: "power2.out" }, start + 5.25);
+          tl.fromTo("#scene-opening .opening-break", { opacity: 0, x: -5 }, { opacity: 0.24, x: 5, duration: 0.06, stagger: 0.012, yoyo: true, repeat: 1, ease: "none" }, start + 5.76);
           tl.to("#scene-opening .opening-core", { opacity: 0.78, scale: 1.05, duration: 0.32, ease: "power1.out" }, start + 5.6);
           tl.fromTo("#scene-opening .opening-impact-flash", { opacity: 0 }, { opacity: 0.28, duration: 0.08, ease: "power1.out" }, start + 5.76);
           tl.to("#scene-opening .opening-impact-flash, #scene-opening .opening-core, #scene-opening .opening-network", { opacity: 0.06, duration: 0.12, ease: "power1.in" }, start + 5.88);
@@ -246,6 +298,11 @@
           gsap.utils.toArray("#scene-turing .turing-dust").forEach((dust, i) => {
             tl.to(dust, { x: ((i * 17) % 19) - 9, y: ((i * 23) % 17) - 8, opacity: 0.16 + ((i * 13) % 18) / 100, duration: 5.8 + (i % 4) * 0.22, ease: "sine.inOut" }, start + 0.2 + i * 0.04);
           });
+          tl.fromTo("#scene-turing .turing-machine-scan", { opacity: 0, x: -80, scaleX: 0.2 }, { opacity: 0.3, x: 80, scaleX: 1, duration: 0.9, yoyo: true, repeat: 1, ease: "power1.out" }, start + 1.05);
+          tl.fromTo("#scene-turing .turing-projection", { opacity: 0, y: 10 }, { opacity: 0.34, y: 0, duration: 0.55, yoyo: true, repeat: 1, ease: "sine.inOut" }, start + 2.2);
+          tl.fromTo("#scene-turing .turing-current", { opacity: 0, x: -35 }, { opacity: 0.28, x: 35, duration: 0.45, yoyo: true, repeat: 1, ease: "power1.out" }, start + 1.85);
+          tl.fromTo("#scene-turing .turing-focus", { opacity: 0, x: (i) => i ? 28 : -28 }, { opacity: 0.42, x: 0, duration: 0.35, yoyo: true, repeat: 1, ease: "power1.out" }, start + 3.38);
+          tl.fromTo("#scene-turing .turing-coordinate", { opacity: 0, x: 12 }, { opacity: 0.34, x: 0, duration: 0.7, yoyo: true, repeat: 1, ease: "sine.inOut" }, start + 4.3);
           tl.to("#scene-turing .turing-volume-light, #scene-turing .turing-light", { opacity: 0.08, duration: 0.7, ease: "power1.out" }, start + 6.3);
           return;
         }
@@ -266,8 +323,16 @@
           gsap.utils.toArray("#scene-dartmouth .dartmouth-dust").forEach((dust, i) => {
             tl.to(dust, { x: ((i * 29) % 25) - 12, y: ((i * 37) % 21) - 10, opacity: 0.12 + ((i * 11) % 18) / 100, duration: 5.8 + (i % 4) * 0.3, ease: "sine.inOut" }, start + 0.4 + i * 0.03);
           });
+          tl.fromTo("#scene-dartmouth .dartmouth-relation", { opacity: 0 }, { opacity: 0.18, duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, start + 1.8);
+          tl.fromTo("#scene-dartmouth .board-detect", { opacity: 0, x: 10 }, { opacity: 0.42, x: 0, duration: 0.55, yoyo: true, repeat: 1, ease: "sine.inOut" }, start + 3.8);
+          tl.fromTo("#scene-dartmouth .document-scan", { opacity: 0, x: -70 }, { opacity: 0.28, x: 70, duration: 0.62, ease: "power1.out" }, start + 2.25);
+          tl.fromTo("#scene-dartmouth .document-label", { opacity: 0, y: 8 }, { opacity: 0.32, y: 0, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, start + 2.3);
+          tl.fromTo("#scene-dartmouth .computer-matrix", { opacity: 0, scale: 0.9 }, { opacity: 0.28, scale: 1, duration: 0.7, yoyo: true, repeat: 1, ease: "sine.inOut" }, start + 2.05);
           tl.from("#scene-dartmouth .dartmouth-title", { opacity: 0, y: 32, duration: 1.6, ease: "power1.out" }, start + 3.6);
           tl.from("#scene-dartmouth .dartmouth-subtitle", { opacity: 0, y: 22, duration: 1.4, ease: "power1.out" }, start + 4.7);
+          gsap.utils.toArray("#scene-dartmouth .term-fragment").forEach((frag, i) => {
+            tl.fromTo(frag, { opacity: 0, x: 0, y: 0 }, { opacity: 0.32, x: ((i * 17) % 45) - 22, y: ((i * 13) % 35) - 17, duration: 0.42, yoyo: true, repeat: 1, ease: "power1.out" }, start + 6.25 + i * 0.018);
+          });
           tl.to("#scene-dartmouth .dartmouth-room, #scene-dartmouth .dartmouth-table, #scene-dartmouth .dartmouth-people, #scene-dartmouth .dartmouth-computer, #scene-dartmouth .dartmouth-window", { opacity: 0.42, duration: 0.9, ease: "power1.out" }, start + 6.1);
           return;
         }
@@ -278,9 +343,22 @@
         if (scene.querySelector(".tag")) tl.from(scene.querySelector(".tag"), { opacity: 0, x: -34, duration: 0.42 }, start + 1.55);
         if (scene.querySelector(".final")) tl.from(scene.querySelector(".final"), { opacity: 0, y: 30, duration: 0.7 }, start + 5.8);
       });
-      [35,43,61].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 1, x: 1080, duration: 0.5 }, t - 0.18));
+      const techSceneProfiles = { "scene-winter": { start: 20, duration: 8, density: 0.35, markerCount: 3 }, "scene-deep-blue": { start: 28, duration: 7, density: 0.48, markerCount: 4 }, "scene-alexnet": { start: 35, duration: 8, density: 0.55, markerCount: 5 }, "scene-alphago": { start: 43, duration: 8, density: 0.46, markerCount: 4 }, "scene-generative": { start: 51, duration: 10, density: 0.62, markerCount: 5 }, "scene-agent": { start: 61, duration: 11, density: 0.7, markerCount: 6 } };
+      Object.values(techSceneProfiles).forEach((profile, sceneIndex) => {
+        tl.fromTo("#techOverlay", { opacity: 0.08 }, { opacity: 0.18 + profile.density * 0.08, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.inOut" }, profile.start + 0.35);
+        gsap.utils.toArray(".tech-particle").slice(0, Math.floor(10 + profile.density * 18)).forEach((dot, i) => {
+          tl.to(dot, { x: ((i * 13 + sceneIndex * 7) % 31) - 15, y: ((i * 19 + sceneIndex * 5) % 25) - 12, opacity: 0.05 + profile.density * 0.14, duration: profile.duration - 0.8, ease: "sine.inOut" }, profile.start + 0.4 + i * 0.01);
+        });
+        gsap.utils.toArray(".tech-mark").slice(0, profile.markerCount).forEach((mark, i) => {
+          tl.fromTo(mark, { opacity: 0, y: 5 }, { opacity: 0.16 + profile.density * 0.08, y: 0, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, profile.start + 1.1 + i * 0.28);
+        });
+        gsap.utils.toArray(".tech-fragment").slice(0, 2 + (sceneIndex % 3)).forEach((frag, i) => {
+          tl.fromTo(frag, { opacity: 0, x: -34 }, { opacity: 0.16, x: 34, duration: 0.22 + (i % 2) * 0.08, ease: "power1.out" }, profile.start + profile.duration - 0.45 + i * 0.04);
+        });
+      });
+      [35,43,61].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 0.46, x: 1080, duration: 0.28 }, t - 0.14));
       tl.fromTo("#warmBeam", { opacity: 0, x: -820, scaleX: 0.58 }, { opacity: 0.3, x: 820, scaleX: 0.58, duration: 0.38 }, 12.86);
-      [20,28].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 0.62, x: 1080, duration: 0.58 }, t - 0.2));
+      [20,28].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -900 }, { opacity: 0.34, x: 900, duration: 0.32 }, t - 0.16));
       tl.fromTo("#glitch", { opacity: 0, x: -32 }, { opacity: 0.75, x: 32, duration: 0.18 }, 50.82);
       tl.to("#glitch", { opacity: 0, duration: 0.18 }, 51.02);
       tl.to(".final-scene", { opacity: 0, duration: 2.6 }, 69.2);
