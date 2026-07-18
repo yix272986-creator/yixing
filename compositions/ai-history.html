@@ -18,10 +18,20 @@
       .scan { opacity: .12; background: repeating-linear-gradient(0deg, transparent 0 8px, rgba(242,245,255,.08) 9px); }
       .grid { opacity: .22; background-image: linear-gradient(rgba(69,230,255,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(165,107,255,.12) 1px, transparent 1px); background-size: 90px 90px; transform: perspective(720px) rotateX(59deg) translateY(500px); transform-origin: bottom; }
       .particle { position:absolute; width:4px; height:4px; border-radius:50%; background:var(--cyan); opacity:.52; }
-      #scene-opening { transform-origin:50% 50%; background:#03040c; background-image: radial-gradient(circle at 50% 49%, rgba(69,230,255,.09), transparent 25%), radial-gradient(circle at 46% 42%, rgba(242,245,255,.035), transparent 36%); }
-      #scene-opening::before { content:""; position:absolute; inset:-80px; pointer-events:none; background:radial-gradient(circle at 50% 44%, rgba(69,230,255,.16), rgba(69,230,255,.035) 18%, transparent 42%); filter:blur(38px); opacity:.42; }
-      #scene-opening::after { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 50% 48%, transparent 0 44%, rgba(0,0,0,.56) 78%, rgba(0,0,0,.86) 100%), repeating-radial-gradient(circle at 37% 42%, rgba(255,255,255,.038) 0 1px, transparent 1px 5px); opacity:.82; }
-      .opening-particle { position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(242,245,255,.72); box-shadow:0 0 14px rgba(69,230,255,.42); opacity:.46; }
+      #scene-opening { background:#010207; overflow:hidden; }
+      .opening-camera { position:absolute; inset:0; transform-origin:50% 48%; }
+      .opening-darkness { position:absolute; inset:0; background:radial-gradient(circle at 50% 42%, #070a12 0%, #020309 38%, #000 100%); }
+      .opening-light-field { position:absolute; left:120px; right:120px; top:210px; height:920px; background:radial-gradient(ellipse at 50% 38%, rgba(244,232,205,.12), rgba(116,134,138,.04) 30%, transparent 70%); filter:blur(32px); opacity:.36; }
+      .opening-lens-flare { position:absolute; left:390px; top:595px; width:300px; height:58px; border-radius:50%; background:radial-gradient(ellipse, rgba(244,232,205,.22), transparent 68%); filter:blur(18px); opacity:0; }
+      .opening-network { position:absolute; left:54px; right:54px; top:210px; height:1180px; border:0; opacity:1; filter:none; }
+      .opening-core { position:absolute; width:22px; height:22px; left:529px; top:660px; border-radius:50%; background:#f1e8d5; box-shadow:0 0 26px rgba(241,232,213,.48), 0 0 72px rgba(175,190,186,.16); filter:blur(4px); opacity:0; }
+      .node { position:absolute; border-radius:50%; background:#e9e1cf; box-shadow:0 0 16px rgba(233,225,207,.36); transform-origin:center; opacity:0; filter:blur(10px); }
+      .line { position:absolute; height:2px; background:linear-gradient(90deg, rgba(218,224,214,0), rgba(218,224,214,.48), rgba(218,224,214,.18)); transform-origin:left center; opacity:0; box-shadow:0 0 10px rgba(218,224,214,.12); }
+      .opening-dust-particle { position:absolute; width:2px; height:2px; border-radius:50%; background:rgba(231,221,197,.62); opacity:.24; }
+      .opening-grain { position:absolute; inset:0; pointer-events:none; opacity:.055; background:repeating-radial-gradient(circle at 30% 30%, rgba(255,255,255,.05) 0 1px, transparent 1px 5px); }
+      .opening-vignette { position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 50% 47%, transparent 0 45%, rgba(0,0,0,.58) 77%, rgba(0,0,0,.92) 100%); }
+      .opening-caption { position:absolute; left:90px; right:90px; top:1218px; font-size:84px; line-height:1.12; font-weight:900; letter-spacing:-.055em; text-align:left; color:#f4eddf; text-shadow:0 10px 46px rgba(0,0,0,.72); filter:blur(0px); }
+      .opening-impact-flash { position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 50% 43%, rgba(245,232,202,.32), rgba(245,232,202,.08) 34%, transparent 68%); opacity:0; }
       .safe { position:absolute; left:90px; right:90px; top:150px; bottom:150px; }
       .scene { position:absolute; inset:0; opacity:1; }
       .year { position:absolute; top:170px; left:90px; font-family:LocalMono, monospace; font-size:120px; line-height:1; font-weight:800; color:var(--cyan); letter-spacing:-.06em; text-shadow:0 0 34px rgba(69,230,255,.25); }
@@ -30,11 +40,6 @@
       .body { position:absolute; left:90px; right:90px; bottom:252px; font-size:40px; line-height:1.55; color:var(--text); text-shadow:0 2px 20px rgba(0,0,0,.4); }
       .tag { position:absolute; left:90px; bottom:178px; padding:15px 22px; border:1px solid rgba(69,230,255,.58); color:var(--cyan); font-family:LocalMono, monospace; font-size:24px; letter-spacing:.18em; background:rgba(9,13,34,.7); }
       .graphic { position:absolute; left:120px; right:120px; top:690px; height:610px; border:1px solid rgba(69,230,255,.28); background:rgba(9,13,34,.32); box-shadow: inset 0 0 80px rgba(69,230,255,.07), 0 0 60px rgba(0,0,0,.35); overflow:hidden; }
-      .node { position:absolute; width:18px; height:18px; border-radius:50%; background:var(--cyan); box-shadow:0 0 26px var(--cyan); transform-origin:center; }
-      .line { position:absolute; height:3px; background:linear-gradient(90deg, rgba(69,230,255,0), rgba(69,230,255,.28), rgba(242,245,255,.86), rgba(69,230,255,.28), rgba(69,230,255,0)); background-size:150% 100%; transform-origin:left center; opacity:.68; }
-      .opening-core { position:absolute; width:18px; height:18px; left:531px; top:910px; border-radius:50%; background:#f2f5ff; box-shadow:0 0 34px rgba(242,245,255,.72), 0 0 86px rgba(69,230,255,.42); }
-      .opening-network { position:absolute; inset:180px -160px 130px -160px; border:0; opacity:0; filter:blur(12px); }
-      .opening-caption { position:absolute; left:90px; right:90px; top:1190px; font-size:74px; line-height:1.18; font-weight:900; letter-spacing:-.04em; text-align:left; color:var(--text); text-shadow:0 8px 42px rgba(0,0,0,.58), 0 0 30px rgba(69,230,255,.18); }
       #scene-turing { background:#05070d; overflow:hidden; }
       #scene-turing::after { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 48% 48%, transparent 0 42%, rgba(0,0,0,.5) 78%, rgba(0,0,0,.86) 100%), repeating-radial-gradient(circle at 65% 32%, rgba(255,255,255,.026) 0 1px, transparent 1px 6px); opacity:.72; }
       .turing-camera { position:absolute; inset:0; transform-origin:50% 55%; }
@@ -127,8 +132,12 @@
     <div id="root" data-composition-id="ai-history" data-start="0" data-duration="72" data-width="1080" data-height="1920" data-fps="30">
       <div class="backdrop"></div><div class="stars" id="stars"></div><div class="grid"></div><div class="scan"></div>
       <section id="scene-opening" class="scene clip opening" data-start="0" data-duration="6" data-track-index="1">
-        <div class="opening-core"></div><div class="opening-network" id="openingNetwork"></div><div class="opening-particles" id="openingParticles"></div>
-        <div class="opening-caption">如果今天没有 AI。</div>
+        <div class="opening-camera">
+          <div class="opening-darkness"></div><div class="opening-light-field"></div><div class="opening-lens-flare"></div>
+          <div class="opening-network" id="openingNetwork"></div><div class="opening-core"></div><div class="opening-dust" id="openingDust"></div>
+          <div class="opening-grain"></div><div class="opening-vignette"></div>
+        </div>
+        <div class="opening-caption">如果 AI 从未诞生。</div><div class="opening-impact-flash"></div>
       </section>
       <section id="scene-turing" class="scene clip" data-start="6" data-duration="7" data-track-index="2" aria-label="Turing 1950">
         <div class="turing-camera">
@@ -173,39 +182,53 @@
     <script>
       const stars = document.getElementById("stars");
       const openingNetwork = document.getElementById("openingNetwork");
-      const openingParticles = document.getElementById("openingParticles");
+      const openingDust = document.getElementById("openingDust");
       const turingLights = document.getElementById("turingLights");
       const turingDust = document.getElementById("turingDust");
       const dartmouthPanel = document.getElementById("dartmouthPanel");
       const dartmouthDust = document.getElementById("dartmouthDust");
       const points = Array.from({ length: 42 }, (_, i) => ({ x: (i * 197) % 980 + 48, y: (i * 311) % 1580 + 150, s: (i % 5) + 2 }));
       points.forEach((p) => { const dot = document.createElement("i"); dot.className = "particle"; dot.style.left = `${p.x}px`; dot.style.top = `${p.y}px`; dot.style.opacity = `${0.18 + p.s * 0.08}`; stars.appendChild(dot); });
-      points.slice(0, 24).forEach((p, i) => { const dust = document.createElement("i"); dust.className = "opening-particle"; dust.style.left = `${(p.x * 1.09 + i * 13) % 1040 + 20}px`; dust.style.top = `${(p.y * .82 + i * 29) % 1350 + 260}px`; openingParticles.appendChild(dust); });
+      const openingNodes = [[486,500,24,.92],[430,430,15,.82],[548,426,14,.78],[390,545,13,.72],[595,552,13,.7],[310,390,10,.62],[675,385,10,.62],[280,600,9,.58],[725,640,9,.56],[480,290,9,.58],[500,760,9,.56],[170,325,7,.46],[820,340,7,.46],[140,700,7,.43],[855,760,7,.42],[245,215,6,.38],[710,190,6,.37],[210,880,6,.36],[770,940,6,.35],[50,520,5,.3],[930,520,5,.3],[380,1040,5,.32],[610,1085,5,.31],[500,70,5,.28]];
+      const openingEdges = [[0,1],[0,2],[0,3],[0,4],[1,5],[2,6],[3,7],[4,8],[1,9],[3,10],[5,11],[6,12],[7,13],[8,14],[5,15],[6,16],[13,17],[14,18],[7,19],[8,20],[10,21],[10,22],[9,23],[2,4],[1,3],[3,4]];
+      openingEdges.forEach(([a,b]) => { const p = openingNodes[a], q = openingNodes[b]; const line = document.createElement("b"); line.className = "line"; line.dataset.delay = `${Math.hypot(p[0]-486,p[1]-500) / 760}`; line.style.left = `${p[0]}px`; line.style.top = `${p[1]}px`; line.style.width = `${Math.hypot(q[0]-p[0],q[1]-p[1])}px`; line.style.transform = `rotate(${Math.atan2(q[1]-p[1],q[0]-p[0])}rad)`; openingNetwork.appendChild(line); });
+      openingNodes.forEach((p, i) => { const node = document.createElement("i"); node.className = "node"; node.dataset.baseOpacity = `${p[3]}`; node.dataset.delay = `${Math.hypot(p[0]-486,p[1]-500) / 760}`; node.style.left = `${p[0] - p[2] / 2}px`; node.style.top = `${p[1] - p[2] / 2}px`; node.style.width = `${p[2]}px`; node.style.height = `${p[2]}px`; node.style.opacity = 0; openingNetwork.appendChild(node); });
+      points.slice(0, 22).forEach((p, i) => { const dust = document.createElement("i"); dust.className = "opening-dust-particle"; dust.style.left = `${(p.x * 1.07 + i * 17) % 980 + 45}px`; dust.style.top = `${(p.y * .7 + i * 31) % 780 + 330}px`; dust.style.width = `${1 + (i % 3)}px`; dust.style.height = `${1 + (i % 3)}px`; openingDust.appendChild(dust); });
       Array.from({ length: 9 }, (_, i) => ({ x: 130 + ((i * 83) % 720), y: 330 + ((i * 137) % 390) })).forEach((p) => { const light = document.createElement("i"); light.className = "turing-light"; light.style.left = `${p.x}px`; light.style.top = `${p.y}px`; turingLights.appendChild(light); });
       Array.from({ length: 18 }, (_, i) => ({ x: 80 + ((i * 211) % 910), y: 310 + ((i * 157) % 920) })).forEach((p) => { const dust = document.createElement("i"); dust.className = "turing-dust"; dust.style.left = `${p.x}px`; dust.style.top = `${p.y}px`; turingDust.appendChild(dust); });
       Array.from({ length: 12 }, (_, i) => ({ x: 22 + ((i * 31) % 132), y: 18 + ((i * 19) % 38), g: i % 4 === 0 })).forEach((p) => { const light = document.createElement("i"); light.className = `dartmouth-light${p.g ? " green" : ""}`; light.style.left = `${p.x}px`; light.style.top = `${p.y}px`; dartmouthPanel.appendChild(light); });
       Array.from({ length: 20 }, (_, i) => ({ x: 72 + ((i * 191) % 930), y: 210 + ((i * 149) % 1030) })).forEach((p) => { const dust = document.createElement("i"); dust.className = "dartmouth-dust"; dust.style.left = `${p.x}px`; dust.style.top = `${p.y}px`; dartmouthDust.appendChild(dust); });
-      const net = [{x:80,y:90},{x:245,y:210},{x:420,y:120},{x:610,y:260},{x:720,y:80},{x:360,y:400},{x:120,y:480},{x:610,y:500}];
-      net.forEach((p, i) => { const n = document.createElement("i"); n.className = "node"; n.style.left = `${p.x}px`; n.style.top = `${p.y}px`; openingNetwork.appendChild(n); if (i) { const a = net[i-1]; const line = document.createElement("b"); line.className = "line"; line.style.left = `${a.x + 9}px`; line.style.top = `${a.y + 9}px`; line.style.width = `${Math.hypot(p.x-a.x,p.y-a.y)}px`; line.style.transform = `rotate(${Math.atan2(p.y-a.y,p.x-a.x)}rad)`; openingNetwork.appendChild(line); } });
       for (let i=0;i<40;i+=1) { const px = document.createElement("span"); px.className = "px"; document.querySelector(".pixels").appendChild(px); }
       const tl = gsap.timeline({ paused: true });
       document.querySelectorAll(".scene").forEach((scene) => {
         const start = Number(scene.dataset.start);
         if (scene.id === "scene-opening") {
-          tl.from("#scene-opening .opening-core", { opacity: 0, scale: 0.62, duration: 0.8 }, start + 0.05);
-          tl.to("#scene-opening .opening-core", { opacity: 0.58, scale: 0.88, duration: 1.45, repeat: 3, yoyo: true, ease: "sine.inOut" }, start + 0.55);
-          tl.fromTo("#scene-opening .opening-network", { opacity: 0, filter: "blur(12px)" }, { opacity: 1, filter: "blur(0px)", duration: 2, ease: "power1.out" }, start + 0.8);
-          tl.from("#scene-opening .opening-caption", { opacity: 0, y: 38, duration: 1 }, start + 3.15);
-          tl.fromTo("#scene-opening", { scale: 1, x: -12, y: -8 }, { scale: 1.08, x: 12, y: 8, duration: 6, ease: "power1.out" }, start);
+          tl.set("#scene-opening .opening-caption", { opacity: 0, y: 24, filter: "blur(8px)" }, start);
+          tl.fromTo("#scene-opening .opening-camera", { scale: 1, x: -6, y: 4 }, { scale: 1.035, x: 0, y: 0, duration: 1.65, ease: "power1.out" }, start);
+          tl.fromTo("#scene-opening .opening-core", { opacity: 0, scale: 0.25, filter: "blur(18px)" }, { opacity: 0.55, scale: 0.75, filter: "blur(4px)", duration: 0.5, ease: "power1.out" }, start + 0.35);
           gsap.utils.toArray("#scene-opening .node").forEach((node, i) => {
-            tl.to(node, { scale: 0.9 + ((i * 37) % 25) / 100, opacity: 0.5 + ((i * 29) % 50) / 100, duration: 1.8 + (i % 4) * 0.45, repeat: 1, yoyo: true, ease: "sine.inOut" }, start + ((i * 17) % 11) / 10);
+            const delay = Number(node.dataset.delay);
+            const targetOpacity = Number(node.dataset.baseOpacity);
+            tl.fromTo(node, { opacity: 0, scale: 0.2, filter: "blur(10px)" }, { opacity: targetOpacity, scale: 1, filter: "blur(0px)", duration: 0.18 + (i % 5) * 0.035, ease: "power2.out" }, start + 0.85 + delay * 0.78);
+            tl.to(node, { opacity: Math.max(0.38, targetOpacity - 0.12), scale: 0.96 + (i % 4) * 0.015, duration: 1.4 + (i % 5) * 0.18, repeat: 1, yoyo: true, ease: "sine.inOut" }, start + 2.1 + (i % 6) * 0.08);
           });
           gsap.utils.toArray("#scene-opening .line").forEach((line, i) => {
-            tl.to(line, { backgroundPosition: "220% 0", duration: 2.5 + (i % 3) * 0.28, repeat: 1, ease: "none" }, start + i * 0.18);
+            const delay = Number(line.dataset.delay);
+            tl.from(line, { width: 0, opacity: 0, duration: 0.22 + (i % 4) * 0.025, ease: "power2.out" }, start + 0.9 + delay * 0.82);
+            tl.to(line, { opacity: 0.34 + (i % 3) * 0.05, duration: 1.25, repeat: 1, yoyo: true, ease: "sine.inOut" }, start + 2.25 + (i % 5) * 0.06);
           });
-          gsap.utils.toArray("#scene-opening .opening-particle").forEach((dot, i) => {
-            tl.to(dot, { x: ((i * 31) % 23) - 11, y: ((i * 43) % 27) - 13, opacity: 0.18 + ((i * 19) % 30) / 100, duration: 4.2 + (i % 5) * 0.32, repeat: 1, yoyo: true, ease: "sine.inOut" }, start + i * 0.08);
+          tl.fromTo("#scene-opening .opening-lens-flare", { opacity: 0, scaleX: 0.55 }, { opacity: 0.22, scaleX: 1, duration: 0.26, yoyo: true, repeat: 1, ease: "sine.inOut" }, start + 0.62);
+          tl.to("#scene-opening .opening-camera", { scale: 1.035, x: 0, y: 0, duration: 0.3, ease: "none" }, start + 1.65);
+          tl.to("#scene-opening .opening-camera", { scale: 1.11, x: 14, y: -10, duration: 4.05, ease: "power1.inOut" }, start + 1.95);
+          tl.to("#scene-opening .opening-caption", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.85, ease: "power2.out" }, start + 2);
+          gsap.utils.toArray("#scene-opening .opening-dust-particle").forEach((dot, i) => {
+            tl.to(dot, { x: ((i * 29) % 23) - 11, y: ((i * 31) % 17) - 8, opacity: 0.14 + ((i * 7) % 18) / 100, duration: 3.6 + (i % 6) * 0.28, ease: "sine.inOut" }, start + 1.15 + i * 0.03);
           });
+          tl.to("#scene-opening .node", { opacity: 1, scale: 1.18, duration: 0.15, yoyo: true, repeat: 1, ease: "power1.out" }, start + 5.25);
+          tl.to("#scene-opening .line", { opacity: 0.72, duration: 0.15, yoyo: true, repeat: 1, ease: "power1.out" }, start + 5.25);
+          tl.to("#scene-opening .opening-core", { opacity: 0.78, scale: 1.05, duration: 0.32, ease: "power1.out" }, start + 5.6);
+          tl.fromTo("#scene-opening .opening-impact-flash", { opacity: 0 }, { opacity: 0.28, duration: 0.08, ease: "power1.out" }, start + 5.76);
+          tl.to("#scene-opening .opening-impact-flash, #scene-opening .opening-core, #scene-opening .opening-network", { opacity: 0.06, duration: 0.12, ease: "power1.in" }, start + 5.88);
           return;
         }
         if (scene.id === "scene-turing") {
@@ -257,7 +280,6 @@
       });
       [35,43,61].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 1, x: 1080, duration: 0.5 }, t - 0.18));
       tl.fromTo("#warmBeam", { opacity: 0, x: -820, scaleX: 0.58 }, { opacity: 0.3, x: 820, scaleX: 0.58, duration: 0.38 }, 12.86);
-      tl.fromTo("#beam", { opacity: 0, x: -760, scaleX: 0.7 }, { opacity: 0.28, x: 760, scaleX: 0.7, duration: 0.32 }, 5.88);
       [20,28].forEach((t) => tl.fromTo("#beam", { opacity: 0, x: -1080 }, { opacity: 0.62, x: 1080, duration: 0.58 }, t - 0.2));
       tl.fromTo("#glitch", { opacity: 0, x: -32 }, { opacity: 0.75, x: 32, duration: 0.18 }, 50.82);
       tl.to("#glitch", { opacity: 0, duration: 0.18 }, 51.02);
